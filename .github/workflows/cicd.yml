@@ -28,7 +28,7 @@ jobs:
           docker push $DOCKERHUB_USERNAME/mern-frontend:latest
  
 deploy:
-  needs: build-and-push
+  needs: build
   runs-on: self-hosted
 
   steps:
