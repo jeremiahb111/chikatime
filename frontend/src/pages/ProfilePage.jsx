@@ -7,7 +7,6 @@ const ProfilePage = () => {
   const [selectedImg, setSelectedImg] = useState(null);
 
   const userInfo = authUser
-  console.log(userInfo)
   const userInitials = userInfo?.fullName.split(" ")
 
   const handleImageUpload = async (e) => {
