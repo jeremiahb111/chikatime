@@ -27,19 +27,19 @@ jobs:
           docker build -t $DOCKERHUB_USERNAME/mern-frontend:latest ./frontend
           docker push $DOCKERHUB_USERNAME/mern-frontend:latest
  
-deploy:
-  needs: build
-  runs-on: self-hosted
+  deploy:
+    needs: build
+    runs-on: self-hosted
 
-  steps:
-    - name: Pull latest backend image
-      run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest
+    steps:
+     - name: Pull latest backend image
+       run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest
 
-    - name: Pull latest frontend image
-      run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mern-frontend:latest
+     - name: Pull latest frontend image
+       run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mern-frontend:latest
 
-    - name: Stop and remove old containers
-      run: docker-compose down
+     - name: Stop and remove old containers
+       run: docker-compose down
 
-    - name: Start containers with latest images
-      run: docker-compose up -d --remove-orphans
+     - name: Start containers with latest images
+       run: docker-compose up -d --remove-orphans
