@@ -16,7 +16,7 @@ consoleStamp(console, { format: ':date(mm/dd/yyyy HH:MM:ss):label' })
 
 const PORT = process.env.PORT
 
-app.use(epxress.json({ limit: '3mb' }))
+app.use(epxress.json({ limit: '5mb' }))
 app.use(epxress.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(cors({
