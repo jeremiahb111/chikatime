@@ -44,6 +44,14 @@ jobs:
         echo "CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}" >> .env
         echo "CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}" >> .env
 
+     - name: Remove old backend image
+       run: |
+        docker rmi -f ${{ secrets.DOCKER_USERNAME }}/mern-backend:latest || true
+
+     - name: Remove old frontend image
+       run: |
+        docker rmi -f ${{ secrets.DOCKER_USERNAME }}/mern-frontend:latest || true
+
      - name: Pull latest backend image
        run: docker pull ${{ secrets.DOCKER_USERNAME }}/mern-backend:latest
 
