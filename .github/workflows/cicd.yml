@@ -41,8 +41,8 @@ jobs:
      - name: Pull latest frontend image
        run: docker pull ${{ secrets.DOCKER_USERNAME }}/mern-frontend:latest
 
-     - name: Stop and remove old containers
-       run: docker-compose down
+    #  - name: Stop and remove old containers
+    #    run: docker-compose down
 
-     - name: Start containers with latest images
-       run: docker-compose up -d --remove-orphans
+    #  - name: Start containers with latest images
+    #    run: docker-compose up -d --remove-orphans
