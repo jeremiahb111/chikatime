@@ -22,7 +22,7 @@ jobs:
 
       - name: remove existing images
         run: |
-          docker rmi -f (docker images -q)
+          docker rmi -f $(docker images -q)
 
       - name: Build and push backend image
         run: |
