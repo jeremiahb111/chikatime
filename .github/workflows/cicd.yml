@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        
+
       - name: Log in to Docker Hub
         run: echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
@@ -36,10 +36,10 @@ jobs:
 
     steps:
      - name: Pull latest backend image
-       run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mern-backend:latest
+       run: docker pull ${{ secrets.DOCKER_USERNAME }}/mern-backend:latest
 
      - name: Pull latest frontend image
-       run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mern-frontend:latest
+       run: docker pull ${{ secrets.DOCKER_USERNAME }}/mern-frontend:latest
 
      - name: Stop and remove old containers
        run: docker-compose down
